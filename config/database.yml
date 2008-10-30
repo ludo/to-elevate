@@ -1,0 +1,17 @@
+---
+development: &defaults
+  # These are the settings for repository :default
+  adapter:  sqlite3
+  database: development.db
+
+rake:
+  <<:       *defaults
+  database: test.db
+
+test:
+  <<:       *defaults
+  database: test.db
+
+production:
+  <<:       *defaults
+  database: development.db
