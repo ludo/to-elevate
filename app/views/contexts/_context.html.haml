@@ -1,0 +1,4 @@
+%li{:id => "context-#{context.id}"}
+  = toggle_field :boolean => false, :checked => !context.active, :value => context.id
+  = link_to h(context), url(:context, context)
+  /%small== [#{context.tasks.count(:completed_at => nil) || 0}]

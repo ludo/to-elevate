@@ -1,0 +1,12 @@
+- title "New Context"
+- menu :contexts
+
+%h2 new context
+
+= error_messages_for @context
+
+= form_for @context, :action => resource(:contexts) do
+  = partial :form
+  = submit "Create"
+  or
+  = link_to "cancel", url(:contexts)

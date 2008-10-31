@@ -1,10 +1,15 @@
 # Go to http://wiki.merbivore.com/pages/init-rb
- 
+
 require 'config/dependencies.rb'
- 
+
+# If you want modules and classes from libraries organized like
+# merbapp/lib/magicwand/lib/magicwand.rb to autoload,
+# uncomment this.
+Merb.push_path(:lib, Merb.root / "lib") # uses **/*.rb as path glob.
+
 use_orm :datamapper
 use_test :rspec
-use_template_engine :erb
+use_template_engine :haml
  
 Merb::Config.use do |c|
   c[:use_mutex] = false

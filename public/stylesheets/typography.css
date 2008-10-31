@@ -1,0 +1,54 @@
+/* PARAGRAPHS
+ * ========================================================================= */
+p, blockquote, dl, pre {
+	line-height: 1.5;
+	margin-top: 1.5em;
+	text-indent: 0;
+}
+
+p + p {
+	margin-top: 0;
+	text-indent: 1.5em; /* p.line-height * p.font-size */
+}
+
+pre {
+	line-height: 1.2;
+}
+
+/* HEADINGS
+ * ========================================================================= */
+h1, h2 {
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 1.5em;
+	/* h1.line-height = p.line-height * p.font-size / h1.font-size */
+	line-height: 1;
+	/*
+		h1.margin-top = h1.line-height * 1.5
+		h1.margin-bottom = h1.line-height * 0.5
+	*/
+	margin: 1em 0 1em 0;
+}
+
+h2 {
+	font-size: 1.2em;
+	line-height: 1.25;
+	margin: 1.875em 0 0.625em 0; 
+}
+
+/* LISTS
+ * ========================================================================= */
+ul, ol {
+	line-height: 1.5;
+	margin-top: 1.5em;
+	margin-left: 3em; /* 3em; /* p.line-height * p.font-size * 2 */
+}
+
+/* QUOTATIONS
+ * ========================================================================= */
+blockquote {
+	margin: 1.5em 0; /* p.line-height * p.font-size */
+	padding-left: 1.5em;
+}

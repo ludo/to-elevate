@@ -1,0 +1,11 @@
+- title "Edit Context"
+- menu :contexts
+
+%h2 edit context
+
+= form_for @context, :action => resource(@context) do
+  = error_messages_for @context
+  = partial :form
+  = submit "Update"
+  or
+  = link_to "cancel", url(:contexts)

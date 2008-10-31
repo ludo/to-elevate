@@ -1,0 +1,441 @@
+/* BODY
+ * ========================================================================= */
+body {
+	background: #fff url(/images/bg-body.png) repeat-x top left;
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.clear {
+	clear: both;
+	/* 'HACK' to make IE display the element the way I want. */
+	font-size: 0;
+	line-height: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.date, .number {
+	text-align: right;
+}
+
+/* LINKS
+ * ========================================================================= */
+a, a:link, a:visited {
+	background: #ffd;
+	border-bottom: 1px solid #cc6;
+	color: #330;
+	text-decoration: none;
+}
+
+a:active, a:hover {
+	color: #000;
+}
+
+/* Delete button
+ * ------------------------------------------------------------------------- */
+.delete-btn {
+	display: inline;
+}
+
+.delete-btn input {
+	background: #ffd;
+	border: none;
+	border-bottom: 1px solid #cc6;
+	color: #330;
+	cursor: pointer;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: inherit;
+	padding: 0;
+}
+
+.delete-btn input:active, .delete-btn input:hover {
+	color: #000;
+}
+
+/* PAGE STRUCTURE
+ * ========================================================================= */
+.container {
+	margin: 0 3em;
+}
+
+/* Auth
+ * ------------------------------------------------------------------------- */
+#auth {
+	background: #444 url(/images/bg-auth.png) repeat-x bottom left;
+	color: #fff;
+	padding: .2em 0;
+}
+
+#auth ul {
+	font-size: .8em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#auth ul li {
+	float: right;
+	margin: 0 0 0 1.5em;
+}
+
+#auth a {
+	background: transparent;
+	border: none;
+	color: #fff;
+}
+
+#auth a:hover, #auth a:active {
+	text-decoration: underline;
+}
+
+/* Header
+ * ------------------------------------------------------------------------- */
+#header h1 {
+	color: #444;
+}
+
+#header a {
+	background: transparent;
+	border: none;
+	color: #1a43f3;
+	text-decoration: none;
+}
+
+#header #user {
+	margin-top: .5em;
+}
+
+#header img.avatar {
+	border: 1px solid #aaa;
+	margin: -.4em .6em 0 0;
+	padding: 2px;
+}
+
+/* Navigation
+ * ------------------------------------------------------------------------- */
+#nav {
+	border-bottom: .25em solid #444;
+	font-size: .8em;
+	margin: 0 -1.5em;
+}
+
+#nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#nav ul li {
+	float: left;
+	padding: .5em 1.5em .25em 1.5em;
+}
+
+#nav ul li.active, div#nav ul li.active:hover {
+	background: #444;
+	color: #fff;
+}
+
+#nav ul li.right {
+	float: right;
+}
+
+#nav a, div#nav a:link, div#nav a:visited {
+	background: transparent;
+	border: none;
+	color: #444;
+}
+
+#nav a:active, div#nav a:hover {
+	color: #000;
+}
+
+#nav li.active a {
+	color: #fff;
+}
+
+/* Footer
+ * ------------------------------------------------------------------------- */
+#footer {
+	border-top: .25em solid #444;
+	color: #777;
+	font-size: .8em;
+	margin: 3.5em -1.5em 0 -1.5em;
+	padding: 0 1.5em 1em 1.5em;
+	text-align: right;
+}
+
+div#footer a {
+	background: transparent;
+	border-bottom-color: #ccc;
+	color: #777;
+}
+
+div#footer a:hover, div#footer a:active {
+	color: #000;
+}
+
+/* EVENT LIST
+ * ========================================================================= */
+.events {
+	margin: 0;
+}
+
+.events dt {
+	background-position: left .2em;
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0 1.3em;
+}
+
+.events dd {
+	color: #666;
+	font-size: .8em;
+	font-style: italic;
+	margin: 0;
+	padding: 0 1.625em .75em 1.625em;
+}
+
+/* ACTION LISTS
+ * ========================================================================= */
+
+/* Current
+ * ------------------------------------------------------------------------- */
+.actions ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* These styles are neccessary for jQuery... Why?! */
+.actions li {
+	list-style-type: none;
+	line-height: 1.5;
+}
+
+.actions .due {
+	background: #9e9;
+}
+
+.actions .due_soon {
+	background: #e99;
+}
+
+.actions .due_alarm {
+	background: #f44;
+}
+
+/* Album
+ * ------------------------------------------------------------------------- */
+.actions li.album {
+	float: left;
+	margin: .5em;
+	position: relative;
+	text-align: center;
+}
+
+.actions li.album:hover a.image {
+	background: #ffd;
+	border: none;
+}
+
+.actions li.album:hover img {
+	border: none;
+}
+
+.actions li.album a {
+	display: block;
+	max-width: 164px;
+}
+
+.actions li.album a.image {
+	background: inherit;
+	border: none;
+	display: table-cell;
+	height: 164px;
+	line-height: 0;
+	margin: 0;
+	vertical-align: middle;
+	width: 164px;
+}
+
+.actions li.album img {
+	border: 1px solid #bbb;
+	margin: 0;
+	padding: 2px;
+}
+
+/* Completed
+ * ------------------------------------------------------------------------- */
+#completed {
+	color: #777;
+}
+
+#completed a, #completed .delete_button button {
+	background: #efefef;
+	border-bottom-color: #ccc;
+	color: #777;
+}
+
+.actions li#completed:hover a.image {
+	background: #efefef;
+}
+
+#completed .details {
+	background: #efefef;
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 0 1px 1px 1px;
+}
+
+#completed a:active, 
+#completed a:hover, 
+#completed .delete_button button:hover,
+#completed .delete_button button:active {
+	color: #000;
+}
+
+/* Details
+ * ------------------------------------------------------------------------- */
+.details {
+	background: #ffd;
+	border-color: #cc6;
+	border-style: solid;
+	border-width: 0 1px 1px 1px;
+	display: none;
+	font-size: .6em;
+	overflow: hidden;
+	padding: .8em 0 .8em 0;
+	position: absolute;
+	text-align: left;
+	top: 163px;
+	width: 164px;
+	z-index: 100;
+}
+
+.details table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.details tr th, .details tr td {
+	padding-top: .3em;
+	padding-bottom: .3em;
+}
+
+.details tr th {
+	padding-left: .5em;
+	padding-right: .2em;
+	text-align: right;
+	vertical-align: top;
+}
+
+.details tr td {
+	padding-left: .2em;
+	padding-right: .5em;
+}
+
+.details ul {
+	margin: 0;
+	padding: 0;
+}
+
+.details ul li {
+	display: inline;
+	margin: 0 .3em 0 0;
+	padding: 0;
+}
+
+/* FORMS
+ * ========================================================================= */
+form dl dd {
+	margin: 0;
+}
+
+form dl dt {
+	margin-top: 1.5em;
+}
+
+form dl dd input, form dl dd textarea {
+	padding: .3em;
+}
+
+form dl dd.major input {
+	font-size: 1em;
+}
+
+form textarea.content_body {
+	height: 20em;
+	width: 90%;
+}
+
+form .hint {
+	color: #555;
+	font-size: .8em;
+	font-style: italic;
+}
+
+form .required label {
+	color: #a00;
+}
+
+/* Form Errors
+ * ------------------------------------------------------------------------- */
+form .error {
+	background: #fdd;
+}
+
+form div.error {
+	border: .1em solid #d88;
+	margin: 0 -1em;
+	padding: .75em 1em;
+}
+
+form div.error h2 {
+	font-size: .8em;
+	font-weight: bold;
+	line-height: 1.5;
+	margin: 0;
+}
+
+form div.error ul {
+	font-size: .8em;
+	margin: 0;
+}
+
+/* MESSAGES
+ * ========================================================================= */
+.message {
+	background-color: #fff;
+	background-position: 3.75em .35em;
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #ccc;
+	font-size: .8em;
+	font-weight: bold;
+	padding: .4em 5.3em;
+}
+
+.message.notice {
+	background-color: #dff2bf;
+	background-image: url(/images/icons/accept.png);
+	border-bottom-color: #4f8a10;
+	color: #4f8a10;
+}
+
+.message.error {
+	background-color: #feefb3;
+	background-image: url(/images/icons/error.png);
+	border-bottom-color: #9f6000;
+	color: #9f6000;
+}

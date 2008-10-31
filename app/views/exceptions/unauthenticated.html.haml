@@ -2,11 +2,10 @@
 
 %h2 log in
 
-%p== Please log in to access your account. Don't have an account yet? Then you can #{link_to "sign up", url(:signup)} for free! Looking for more information? Please visit the #{link_to "elevate", "http://github.com/ludo/to-elevate/wikis/home", :class => "to elevate"} product page.
-
-= error_messages_for session.authentication
+%p== Please log in to access your account. Don't have an account yet? Then you can #{link_to "sign up", url(:contexts)} for free! Looking for more information? Please visit the #{link_to "elevate", "http://github.com/ludo/to-elevate/wikis/home", :class => "to elevate"} product page.
 
 = form(:action => slice_url(:merb_auth_slice_password, :perform_login), :method => :put) do
+  = error_messages_for session.authentication
   %dl
     %dt= label "E-mail", :for => "email"
     %dd= text_field :name => "email", :id => "email", :size => 50, :maxlength => 256

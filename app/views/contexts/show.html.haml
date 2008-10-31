@@ -1,0 +1,7 @@
+- title @context
+- menu :contexts
+
+%div{:id => @context.name.to_slug, :class => "actions"}
+  %h2
+    = h(@context)
+    %small== (#{link_to "edit", url(:edit_context, @context)})

@@ -19,6 +19,11 @@ class User
   property :created_at, DateTime
   property :updated_at, DateTime
 
+  # === Associations
+  has n, :contexts
+  #has n, :projects
+  #has n, :tasks
+  
   # === Instance methods
   
   # Return the login when stringified

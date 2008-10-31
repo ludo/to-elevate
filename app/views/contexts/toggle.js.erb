@@ -1,0 +1,4 @@
+$("#context-<%= @context.id %>").hide("fast", function() {
+  $("#context-<%= @context.id %>").appendTo("#<%= @destination %>");
+  $("#context-<%= @context.id %>").show("fast");
+});

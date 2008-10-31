@@ -1,0 +1,11 @@
+- title "Edit Account"
+- menu :users
+
+%h2 edit account
+
+= form_for @user, :action => url(:user, @user) do
+  = error_messages_for @user
+  = partial :form
+  = submit "Update"
+  or
+  = link_to "cancel", url(:root)

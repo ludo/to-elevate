@@ -1,0 +1,14 @@
+- title "Contexts"
+- menu :contexts
+
+#active.actions
+  %h2
+    active contexts
+    %small== (#{link_to "new", url(:new_context)})
+  %ul= partial :context, :with => @active_contexts
+
+#completed.actions
+  %h2 hidden contexts
+  %ul= partial :context, :with => @hidden_contexts
+
+%script{:type => "text/javascript"}= partial :toggle, :format => :js

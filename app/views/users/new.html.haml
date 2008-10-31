@@ -1,0 +1,10 @@
+- title "Sign Up"
+
+%h2 sign up
+
+= form_for @user, :action => url(:users) do
+  = error_messages_for @user
+  = partial :form
+  = submit "Create"
+  or
+  = link_to "cancel", url(:root)

@@ -5,7 +5,6 @@
     %title
       = catch_content :for_title
       to elevate
-    = css_include_tag :to
     = css_include_tag :master
     = css_include_tag :typography
     = js_include_tag :jquery
@@ -14,16 +13,18 @@
       .container
         %ul= partial "layout/auth"
         %br.clear
+    - message.each do |kind, value|
+      .message{:class => kind.to_s}= value
     .container
       #header
-        - if logged_in?
-          #user.right= current_user.login
-          = image_tag gravatar(current_user.email), :class => "right avatar"
+        - if session.authenticated?
+          #user.right= session.user.email
+          = image_tag gravatar(session.user.email), :class => "right avatar"
         %h1
           to
           = link_to "elevate", url(:root)
       #nav
-        = render_menu if logged_in?
+        = render_menu if session.authenticated?
         %br.clear
       #main= catch_content :for_layout
       #footer

@@ -27,20 +27,20 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
+  resources :users
   # RESTful routes
-  # resources :posts
+  resources :contexts, :member => { :toggle => :post }
+  resources :projects, :member => { :toggle => :post }
+  resources :tasks, 
+    :member => { :toggle => :post },
+    :collection => { :archive => :get }
+  match(%r[^/tasks/(\d{4})/(\d{1,2})$]).to(:controller => 'tasks', :action => 'month', :date => '[1]-[2]-01').name(:month)
   
-  resources :contexts
+  resources :users
   
   # Adds the required routes for merb-auth using the password slice
   slice(:merb_auth_slice_password, :name_prefix => nil, :path_prefix => "")
-
-  # This is the default route for /:controller/:action/:id
-  # This is fine for most cases.  If you're heavily using resource-based
-  # routes, you may want to comment/remove this line to prevent
-  # clients from calling your create or destroy actions with a GET
-  # default_routes
   
-  # Change this for your home page to be available at /
-  # match('/').to(:controller => 'whatever', :action =>'index')
+  # Homepage
+  match('/').to(:controller => 'contexts', :action => 'index').name(:root)
 end
