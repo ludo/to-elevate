@@ -23,7 +23,14 @@ class Projects < Application
     @project.save
     
     # Where should this project go on the page?
-    @destination = @project.completed? ? "completed" : "active"    
+    @destination = if !@project.completed? && @project.someday
+      "someday"
+    elsif @project.completed?
+      "completed"
+    else
+      "active"
+    end
+    
     render
   end
   

@@ -7,10 +7,9 @@
     %small== (#{link_to "new", url(:new_project)})
   %ul= partial :project, :with => @active_projects
 
-- if @someday_projects.size > 0
-  .actions
-    %h2 someday/maybe projects
-    %ul= partial :project, :with => @someday_projects
+#someday.actions
+  %h2 someday/maybe projects
+  %ul= partial :project, :with => @someday_projects
 
 #completed.actions
   %h2 completed projects
