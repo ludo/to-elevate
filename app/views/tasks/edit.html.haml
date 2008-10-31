@@ -1,0 +1,10 @@
+- title "Edit Action"
+
+%h2 edit action
+
+= form_for(@task, :action => url(:task, @task)) do
+  = error_messages_for @task
+  = partial :form
+  = submit "Update"
+  or
+  = link_to "cancel", redirect_back

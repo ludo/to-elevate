@@ -1,0 +1,11 @@
+- title "New Project"
+- menu :projects
+
+%h2 new project
+
+= form_for(@project, :action => url(:projects)) do
+  = error_messages_for @project
+  = partial :form
+  = submit "Create"
+  or
+  = link_to "cancel", url(:projects)

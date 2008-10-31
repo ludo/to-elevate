@@ -8,7 +8,7 @@ class Context
   
   # === Associations
   belongs_to :user
-  #has n, :tasks
+  has n, :tasks
 
   # === Validations
   validates_is_unique :name, :scope => [:user]
@@ -20,7 +20,7 @@ class Context
   # --
   # @api public
   def toggle
-    attribute_set(:active, !@active)
+    attribute_set(:active, !active)
   end
   
   # Return the name when stringified
@@ -31,7 +31,7 @@ class Context
   # --
   # @api public
   def to_s
-    @name
+    name
   end
   
   # === Class methods

@@ -21,8 +21,8 @@ class User
 
   # === Associations
   has n, :contexts
-  #has n, :projects
-  #has n, :tasks
+  has n, :projects
+  has n, :tasks
   
   # === Instance methods
   

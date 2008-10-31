@@ -1,0 +1,4 @@
+$("#project-<%= @project.id %>").hide("fast", function() {
+  $("#project-<%= @project.id %>").appendTo("#<%= @destination %>");
+  $("#project-<%= @project.id %>").show("fast");
+});

@@ -1,0 +1,4 @@
+%li{:id => "project-#{project.id}"}
+  = toggle_field :boolean => false, :checked => project.completed?, :value => project.id
+  = link_to h(project), url(:project, project)
+  %small== [#{project.count_uncompleted_tasks}]

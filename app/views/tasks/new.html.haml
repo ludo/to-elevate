@@ -1,0 +1,11 @@
+- title "New Action"
+- menu :new_action
+
+%h2 new action
+
+= form_for(@task, :action => url(:tasks)) do
+  = error_messages_for @task
+  = partial :form
+  = submit "Create"
+  or
+  = link_to "cancel", redirect_back

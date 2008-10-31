@@ -1,0 +1,12 @@
+- title "Archive"
+
+.actions
+  %h2 completed actions
+  %p== You have a total of #{@completed_task_count} completed actions.
+  - @months.sort {|a,b| b[0]<=>a[0]}.each do |year|
+    %h3= year[0]
+    %ul
+      - for month in year[1] do
+        %li= link_to Date::MONTHNAMES[month], "#{url(:tasks)}/#{year[0]}/#{month}"
+
+%script{:type => "text/javascript"}= partial :toggle, :format => :js

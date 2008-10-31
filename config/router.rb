@@ -27,6 +27,8 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
+  resources :tasks
+  resources :projects
   resources :users
   # RESTful routes
   resources :contexts, :member => { :toggle => :post }
@@ -42,5 +44,5 @@ Merb::Router.prepare do
   slice(:merb_auth_slice_password, :name_prefix => nil, :path_prefix => "")
   
   # Homepage
-  match('/').to(:controller => 'contexts', :action => 'index').name(:root)
+  match('/').to(:controller => 'tasks', :action => 'index').name(:root)
 end

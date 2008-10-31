@@ -1,0 +1,30 @@
+if( $("#<%= @destination %>").length == 0 ) {
+  // Create header
+  var contextHeader = document.createElement("h2");
+  
+  var contextHeaderLink = document.createElement("a");
+  contextHeaderLink.href = "<%= url(:context, @task.context) %>";
+  
+  var contextHeaderText = document.createTextNode("<%= @task.context %>");
+
+  $(contextHeaderLink).append(contextHeaderText);
+  $(contextHeader).append(contextHeaderLink);
+
+  // Create empty list
+  var actionList = document.createElement("ul");
+  
+  // Create container
+  var contextDiv = document.createElement("div");
+  contextDiv.id = "<%= @destination %>";
+  contextDiv.className = "actions";
+  
+  $(contextDiv).append(contextHeader);
+  $(contextDiv).append(actionList);
+  
+  $("#completed").before(contextDiv);
+}
+
+$("#task-<%= @task.id %>").hide("fast", function() {
+  $("#task-<%= @task.id %>").appendTo("#<%= @destination %>");
+  $("#task-<%= @task.id %>").show("fast");
+});

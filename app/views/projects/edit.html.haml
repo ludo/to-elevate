@@ -1,0 +1,11 @@
+- title "Edit Project"
+- menu :projects
+
+%h2 edit project
+
+= form_for(@project, :action => url(:project, @project)) do
+  = error_messages_for @project
+  = partial :form
+  = submit "Update"
+  or
+  = link_to "cancel", url(:project, @project)

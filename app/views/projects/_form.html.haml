@@ -1,0 +1,9 @@
+%dl
+  %dt.required= label "Title", :id => "project_title"
+  %dd.major= text_field :title, :maxlength => 64, :size => 50
+  %dt= label "Outcome", :id => "project_outcome"
+  %dd= text_field :outcome, :maxlength => 256, :size => 50
+  %dt
+    = check_box :someday
+    =label "Someday/Maybe", :id => "project_someday"
+    .hint Projects that you might want to do in the future can be marked as a someday/maybe project. These will appear in a separate section on the projects page.

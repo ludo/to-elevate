@@ -1,0 +1,13 @@
+%dl
+  %dt.required= label "Title", :id => "task_title"
+  %dd.major= text_field :title, :maxlength => 64, :size => 50
+  %dt= label "Project", :id => "task_project"
+  %dd= select :project_id, :collection => session.user.projects.all(:completed_at => nil, :order => [:title]), :text_method => :title, :value_method => :id, :include_blank => true, :selected => @task.project_id
+  %dt.required= label "Context", :id => "task_context"
+  %dd= select :context_id, :collection => session.user.contexts.all(:active => true, :order => [:name]), :text_method => :name, :value_method => :id, :include_blank => true, :selected => @task.context_id || nil
+  %dt= label "Notes", :id => "task_notes"
+  %dd~ text_area :notes, :cols => 50, :rows => 6
+  %dt
+    = label "Due on", :id => "task_due_on"
+    .hint Should this task be completed before a specific date? Then you can enter a date here. Use the format 'dd-mm-yyyy'.
+  %dd= text_field :due_on, :value => @task.due_on ? @task.due_on : nil, :size => 10, :maxlength => 10

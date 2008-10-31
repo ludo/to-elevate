@@ -1,9 +1,5 @@
-/* Show/hide edit links next to content */
-$(".actions li").hover(
-  function() {
-    $("#edit-" + this.id).show();
-  }, 
-  function () {
-    $("#edit-" + this.id).hide();
-  }
-);
+$(".actions li input[type=checkbox]").click(function() {
+  $.post("<%= url(controller_name.to_sym) %>/" + this.value + "/toggle.js", function(data) {
+    eval(data);
+  })
+});

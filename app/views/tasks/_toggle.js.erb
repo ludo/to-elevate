@@ -1,0 +1,12 @@
+/* AJAX toggling script */
+$(".actions li input[type=checkbox]").click(function() {
+  $.post("/tasks/" + this.value + "/toggle.js", function(data) {
+    eval(data);
+  })
+});
+
+/* Toggle note visibility */
+/* Show/hide edit links next to action */
+$(".actions li span.note").click(function() {
+  $("#notes-" + $(this).parent().get(0).id).toggle();
+});

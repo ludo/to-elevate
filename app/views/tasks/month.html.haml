@@ -1,0 +1,9 @@
+- title @date.strftime("%B %Y")
+ 
+#completed.actions
+  %h2 
+    = @date.strftime("%B %Y")
+    %small== [#{@tasks.size}]
+  %ul= partial :task, :with => @tasks
+ 
+%script{:type => "text/javascript"}= partial :toggle, :format => :js

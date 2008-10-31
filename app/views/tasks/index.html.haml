@@ -1,0 +1,18 @@
+- title "Dashboard"
+- menu :dashboard
+
+/ Active tasks
+- for context in @contexts
+  %div{:id => context.name.to_slug, :class => "actions"}
+    %h2= link_to context, url(:context, context)
+    %ul= partial :task, :with => context.tasks.find_active
+
+/ Recently completed tasks
+#completed.actions
+  %h2 
+    recently completed
+    %small== (#{link_to "archive", url(:archive_tasks)})
+  %ul= partial :task, :with => session.user.tasks.find_completed(:limit => 5)
+
+%script{:type => "text/javascript"}= partial "shared/actions", :format => :js
+%script{:type => "text/javascript"}= partial :toggle, :format => :js

@@ -1,0 +1,14 @@
+%li{:id => "task-#{task.id}"}
+  = toggle_field :boolean => false, :checked => task.completed?, :value => task.id
+  - if task.notes?
+    %span.note= h(task)
+  - else
+    %span= h(task)
+  - if task.project
+    %small== (#{link_to task.project, url(:project, task.project)})
+  = due(task)
+  %small{:id => "edit-task-#{task.id}", :class => "hidden"}
+    = link_to "edit", url(:edit_task, task)
+    = delete_button url(:task, task), "delete"
+  - if task.notes?
+    %pre.hidden.note{:id => "notes-task-#{task.id}"}= h(task.notes)

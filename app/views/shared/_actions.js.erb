@@ -1,0 +1,9 @@
+/* Show/hide edit links next to content */
+$(".actions li").hover(
+  function() {
+    $("#edit-" + this.id).show();
+  }, 
+  function () {
+    $("#edit-" + this.id).hide();
+  }
+);

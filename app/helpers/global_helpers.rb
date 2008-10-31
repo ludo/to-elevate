@@ -10,7 +10,7 @@ module Merb
     # -
     # @api public
     def active_task_count
-      0 #session.user.tasks.count(:completed_at => nil) || 0
+      session.user.tasks.count(:completed_at => nil) || 0
     end
     
     # Determine how to display due_on date for a task
@@ -72,6 +72,23 @@ module Merb
       @menu = selected
     end
 
+    # Return user to previous page
+    #
+    # TODO Find way to remove hard-coded server uri
+    #
+    # ==== Returns
+    # String:: Referer
+    #
+    # -
+    # @api public
+    def redirect_back
+      if request.referer && request.referer.include?("http://localhost:4000/")
+        request.referer
+      else
+        url(:root)
+      end
+    end
+    
     def render_menu
       menu = ""
       menu_items.sort { |a,b| a[1][:position] <=> b[1][:position] }.each do |item|

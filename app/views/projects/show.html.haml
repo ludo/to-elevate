@@ -1,0 +1,18 @@
+- title @project
+- menu :projects
+
+%div{:id => @project.title.to_slug, :class => "actions"}
+  %h2
+    = h(@project)
+    %small
+      == (#{link_to "edit", url(:edit_project, @project)})
+  - if @project.outcome
+    %p= h(@project.outcome)
+  %ul= partial :task, :with => @project.tasks(:completed_at => nil, :order => [:due_on.desc, :created_at.asc])
+
+/ Recently completed tasks
+#completed.actions
+  %h2 recently completed actions
+  %ul= partial "tasks/task", :with => @project.tasks(:completed_at.not => nil, :order => [:completed_at.desc], :limit => 5)
+
+%script{:type => "text/javascript"}= partial "shared/actions", :format => :js
