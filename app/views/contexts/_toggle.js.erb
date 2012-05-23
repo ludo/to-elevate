@@ -1,5 +1,0 @@
-$(".actions li input[type=checkbox]").click(function() {
-  $.post("/contexts/" + this.value + "/toggle.js", function(data) {
-    eval(data);
-  })
-});

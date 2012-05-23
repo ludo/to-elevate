@@ -82,7 +82,7 @@ module Merb
     # -
     # @api public
     def redirect_back
-      if request.referer && request.referer.include?("http://localhost:4000/")
+      if request.referer && request.referer.include?("http://#{request.host}")
         request.referer
       else
         url(:root)
